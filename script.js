@@ -51,20 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const titulo = document.querySelector('.titulo');
+    const titulo = document.querySelector('.titulo a');
     const videos = document.querySelector('.videos a');
     if (titulo) envolverLetras(titulo);
     if (videos) envolverLetras(videos);
 
     setInterval(() => {
-        document.querySelectorAll('.titulo span, .videos span').forEach(span => {
+        document.querySelectorAll('.titulo a span, .videos span').forEach(span => {
             const fuenteRandom = fuentes[Math.floor(Math.random() * fuentes.length)];
             span.style.setProperty('font-family', fuenteRandom, 'important');
         });
     }, 1500);
-});
-
-
-document.getElementById('btn-videos').addEventListener('click', (e) => {
-    window.open('https://www.youtube.com/@thenichosur', '_blank');
-});
+})
