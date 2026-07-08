@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: #0d0d0d;
+    color: white;
+}
+
+
+#auth-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-box {
+    background: #1a1a1a;
+    padding: 40px 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.auth-box h1 {
+    font-size: 26px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+.subtitulo {
+    color: #999;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #0d0d0d;
+    color: white;
+    font-size: 15px;
+}
+
+.auth-box button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    background: #ffdd33;
+    color: #0d0d0d;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.auth-box button:hover {
+    background: #ffe866;
+}
+
+.switch {
+    margin-top: 14px;
+    font-size: 13px;
+    color: #999;
+}
+
+.switch span {
+    color: #ffdd33;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.error {
+    color: #ff5555;
+    font-size: 13px;
+    margin-top: 10px;
+    min-height: 16px;
+}
+
+
+#chat-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.sidebar {
+    width: 220px;
+    background: #1a1a1a;
+    padding: 20px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar h2 {
+    font-size: 16px;
+    color: #999;
+    margin-bottom: 10px;
+    padding-left: 8px;
+}
+
+.sala-btn {
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    padding: 10px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.sala-btn:hover {
+    background: #2a2a2a;
+}
+
+.sala-btn.activo {
+    background: #ffdd33;
+    color: #0d0d0d;
+    font-weight: bold;
+}
+
+.usuario-actual {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#nombre-usuario {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.usuario-actual button {
+    background: #333;
+    border: none;
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.usuario-actual button:hover {
+    background: #444;
+}
+
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.chat-area h3 {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 12px;
+}
+
+#mensajes {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 6px;
+}
+
+.mensaje {
+    background: #1a1a1a;
+    padding: 10px 14px;
+    border-radius: 8px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.mensaje .autor {
+    font-size: 12px;
+    color: #ffdd33;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.mensaje .texto {
+    font-size: 15px;
+}
+
+.mensaje .hora {
+    font-size: 10px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.input-mensaje {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.input-mensaje input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #1a1a1a;
+    color: white;
+    font-size: 15px;
+}
+
+.input-mensaje button {
+    padding: 12px 20px;
+    border-radius: 6px;
+    border: none;
+    background: #ffdd33;
+    color: #0d0d0d;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.input-mensaje button:hover {
+    background: #ffe866;
+}
+
+
+@media (max-width: 768px) {
+    #chat-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+        gap: 6px;
+        overflow-x: auto;
+    }
+
+    .sidebar h2 {
+        display: none;
+    }
+
+    .usuario-actual {
+        margin-top: 0;
+        margin-left: auto;
+        border-top: none;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .chat-area {
+        padding: 12px;
+    }
+
+    .mensaje {
+        max-width: 85%;
+    }
+}

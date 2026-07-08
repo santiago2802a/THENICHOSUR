@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE NICHO SUR - Foro</title>
+<link rel="stylesheet" href="foro.css">
+</head>
+<body>
+
+  
+    <div id="auth-container">
+        <div class="auth-box">
+            <h1>THE NICHO SUR</h1>
+            <p class="subtitulo">Foro grupal</p>
+
+            <div id="login-form">
+                <input type="text" id="login-user" placeholder="Usuario">
+                <input type="password" id="login-pass" placeholder="Contraseña">
+                <button onclick="iniciarSesion()">Entrar</button>
+                <p class="switch">¿No tenés cuenta? <span onclick="mostrarRegistro()">Registrate</span></p>
+                <p id="login-error" class="error"></p>
+            </div>
+
+            <div id="register-form" style="display:none;">
+                <input type="text" id="reg-user" placeholder="Usuario">
+                <input type="password" id="reg-pass" placeholder="Contraseña (mín. 6 caracteres)">
+                <button onclick="registrarse()">Crear cuenta</button>
+                <p class="switch">¿Ya tenés cuenta? <span onclick="mostrarLogin()">Iniciar sesión</span></p>
+                <p id="register-error" class="error"></p>
+            </div>
+        </div>
+    </div>
+
+  
+    <div id="chat-container" style="display:none;">
+        <div class="sidebar">
+            <h2>Salas</h2>
+            <button class="sala-btn activo" data-sala="general" onclick="cambiarSala('general')">General</button>
+            <button class="sala-btn" data-sala="sala2" onclick="cambiarSala('sala2')">Sala 2</button>
+            <button class="sala-btn" data-sala="sala3" onclick="cambiarSala('sala3')">Sala 3</button>
+            <div class="usuario-actual">
+                <span id="nombre-usuario"></span>
+                <button onclick="cerrarSesion()">Salir</button>
+            </div>
+        </div>
+
+        <div class="chat-area">
+            <h3 id="titulo-sala">General</h3>
+            <div id="mensajes"></div>
+            <div class="input-mensaje">
+                <input type="text" id="input-texto" placeholder="Escribí un mensaje..." onkeydown="if(event.key==='Enter') enviarMensaje()">
+                <button onclick="enviarMensaje()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+    <script src="foro.js"></script>
+</body>
+</html>
