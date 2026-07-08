@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#intro {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#cara {
+    color: white;
+    font-size: 120px;
+}
+
+#pagina {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#video-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+#modelo-logo {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    width: 200px;
+    height: 200px;
+    z-index: 15;
+}
+
+.titulo {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: "Boogaloo", Arial, sans-serif;
+    font-size: clamp(42px, 9vw, 88px);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 10;
+    text-shadow: 0 0 25px rgba(0, 0, 0, 0.95), 4px 4px 0 rgba(0, 0, 0, 0.8);
+    pointer-events: none;
+}
+
+.videos {
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: "Boogaloo", Arial, sans-serif;
+    font-size: clamp(29px, 6.2vw, 55px);
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.videos a {
+    color: inherit;
+    text-decoration: none;
+    pointer-events: auto;
+    display: block;
+    padding: 12px 40px;
+}
+
+.videos a:hover {
+    color: #ffdd33;
+    transform: scale(1.08);
+    transition: all 0.3s ease;
+}
+
+/* Font Faces */
+@font-face {
+    font-family: "Boogaloo";
+    src: url("fonts/BOOGALOO.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: "FirstPlace";
+    src: url("fonts/FirstPlace.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Quiff";
+    src: url("fonts/Quiff.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Sabrosy";
+    src: url("fonts/Sabrosy.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "WishfulWaves";
+    src: url("fonts/WISHFULWAVES.ttf") format("truetype");
+}
+
+@media (max-width: 768px) {
+    .titulo {
+        top: 42%;
+        font-size: clamp(32px, 11vw, 62px);
+        letter-spacing: 4px;
+    }
+
+    .videos {
+        top: 65%;
+        font-size: clamp(24px, 7.5vw, 42px);
+        letter-spacing: 6px;
+    }
+
+    #modelo-logo {
+        width: 120px;
+        height: 120px;
+        top: 3%;
+        left: 3%;
+    }
+
+    #cara {
+        font-size: 140px;
+    }
+}
+
+@media (max-width: 768px) and (max-height: 700px) {
+    .titulo {
+        top: 40%;
+    }
+    .videos {
+        top: 64%;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .titulo {
+        top: 38%;
+    }
+    .videos {
+        top: 62%;
+    }
+
+    #modelo-logo {
+        width: 100px;
+        height: 100px;
+        top: 2%;
+        left: 2%;
+    }
+}

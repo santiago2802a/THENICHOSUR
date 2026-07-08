@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>THE NICHO SUR</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+</head>
+<body>
+
+    <div id="intro">
+        <h1 id="cara">:)</h1>
+    </div>
+
+    <div id="pagina">
+
+        <video autoplay muted loop playsinline id="video-fondo">
+            <source src="fondo.mp4" type="video/mp4">
+        </video>
+
+        <model-viewer
+            id="modelo-logo"
+            src="logo3d/logo.glb"
+            auto-rotate
+            camera-controls
+            rotation-per-second="20deg"
+            camera-orbit="0deg 75deg 105%"
+            interaction-prompt="none"
+            disable-zoom
+            shadow-intensity="1"
+            exposure="1"
+            environment-image="neutral">
+        </model-viewer>
+
+        <div class="text-container">
+            <h1 class="titulo">THE NICHO SUR</h1>
+            <h2 class="videos" id="btn-videos">
+                <a href="https://www.youtube.com/@thenichosur" target="_blank" rel="noopener noreferrer">
+                    VIDEOS
+                </a>
+            </h2>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
