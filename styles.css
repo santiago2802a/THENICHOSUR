@@ -17,14 +17,39 @@ html, body {
     height: 100%;
     background: black;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 16px;
     z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+    cursor: pointer;
 }
 
 #cara {
     color: white;
     font-size: 120px;
+}
+
+#hint {
+    position: fixed;
+    top: calc(50vh + 130px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    color: #999;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: parpadeo 1.8s infinite;
+    z-index: 10000;
+}
+
+@keyframes parpadeo {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
 }
 
 #pagina {
@@ -44,14 +69,31 @@ html, body {
 }
 
 #modelo-logo {
-    position: absolute;
+    position: fixed;
+    top: calc(50vh - 110px);
+    left: calc(50vw - 110px);
+    width: 220px;
+    height: 220px;
+    z-index: 10000;
+    background-color: transparent;
+    --poster-color: transparent;
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+    transition: top 1s ease, left 1s ease, width 1s ease, height 1s ease, opacity 0.6s ease;
+}
+
+#modelo-logo.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#modelo-logo.final {
     top: 3%;
     left: 3%;
     width: 200px;
     height: 200px;
     z-index: 15;
-    background-color: transparent;
-    --poster-color: transparent;
 }
 
 .titulo {
@@ -144,6 +186,10 @@ html, body {
 }
 
 @media (max-width: 768px) {
+    #cara {
+        font-size: 140px;
+    }
+
     .titulo {
         top: 42%;
         font-size: clamp(32px, 11vw, 62px);
@@ -157,14 +203,17 @@ html, body {
     }
 
     #modelo-logo {
+        width: 160px;
+        height: 160px;
+        top: calc(50vh - 80px);
+        left: calc(50vw - 80px);
+    }
+
+    #modelo-logo.final {
         width: 120px;
         height: 120px;
         top: 3%;
         left: 3%;
-    }
-
-    #cara {
-        font-size: 140px;
     }
 }
 
@@ -185,10 +234,14 @@ html, body {
         top: 62%;
     }
 
-    #modelo-logo {
+    #modelo-logo.final {
         width: 100px;
         height: 100px;
         top: 2%;
         left: 2%;
+    }
+    #hint {
+        top: calc(50vh + 100px);
+        font-size: 13px;
     }
 }

@@ -12,27 +12,28 @@
 
     <div id="intro">
         <h1 id="cara">:)</h1>
+        <p id="hint">Tocá la pantalla para entrar</p>
     </div>
+
+    <model-viewer
+        id="modelo-logo"
+        src="logo3d/logo.glb"
+        auto-rotate
+        camera-controls
+        rotation-per-second="-20deg"
+        camera-orbit="0deg 75deg 105%"
+        interaction-prompt="none"
+        disable-zoom
+        shadow-intensity="1"
+        exposure="1"
+        environment-image="neutral">
+    </model-viewer>
 
     <div id="pagina">
 
         <video autoplay muted loop playsinline id="video-fondo">
             <source src="fondo.mp4" type="video/mp4">
         </video>
-
-        <model-viewer
-            id="modelo-logo"
-            src="logo3d/logo.glb"
-            auto-rotate
-            camera-controls
-            rotation-per-second="20deg"
-            camera-orbit="0deg 75deg 105%"
-            interaction-prompt="none"
-            disable-zoom
-            shadow-intensity="1"
-            exposure="1"
-            environment-image="neutral">
-        </model-viewer>
 
         <div class="text-container">
             <h1 class="titulo" id="btn-foro">

@@ -1,18 +1,38 @@
 const cara = document.getElementById("cara");
+const hint = document.getElementById("hint");
 const intro = document.getElementById("intro");
 const pagina = document.getElementById("pagina");
-
-setTimeout(() => {
-    cara.textContent = ";)";
-}, 1000);
-
-setTimeout(() => {
-    intro.style.display = "none";
-    pagina.style.display = "block";
-}, 2200);
-
-
 const modelo = document.getElementById('modelo-logo');
+
+let yaEntro = false;
+
+hint.style.display = "none";
+
+
+setTimeout(() => { cara.textContent = ";)"; }, 2000);
+setTimeout(() => { cara.textContent = ":)"; }, 4000);
+
+setTimeout(() => {
+    cara.style.display = "none";
+    modelo.classList.add('visible');
+    hint.style.display = "block";
+}, 6000);
+
+function entrarASitio() {
+    if (yaEntro) return;
+    yaEntro = true;
+
+    modelo.classList.add('final');
+    intro.style.opacity = '0';
+
+    setTimeout(() => {
+        intro.style.display = 'none';
+        pagina.style.display = 'block';
+    }, 600);
+}
+
+modelo.addEventListener('click', entrarASitio);
+
 
 let temporizadorInactividad;
 
@@ -61,5 +81,5 @@ document.addEventListener('DOMContentLoaded', () => {
             const fuenteRandom = fuentes[Math.floor(Math.random() * fuentes.length)];
             span.style.setProperty('font-family', fuenteRandom, 'important');
         });
-    }, 1500);
-})
+    }, 700);
+});
