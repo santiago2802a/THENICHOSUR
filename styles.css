@@ -255,8 +255,9 @@ html, body {
     }
 
     #cara {
-        font-size: 32px;
-        top: calc(50vh - 10px);
+        font-size: 50px;
+        top: calc(50vh - 22px);
+        left: calc(50% - 16px);
     }
 }
 
