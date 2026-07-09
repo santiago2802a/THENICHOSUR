@@ -3,7 +3,6 @@ const hint = document.getElementById("hint");
 const intro = document.getElementById("intro");
 const pagina = document.getElementById("pagina");
 const modelo = document.getElementById('modelo-logo');
-const videoFondo = document.getElementById('video-fondo');
 
 let yaEntro = false;
 
@@ -48,10 +47,10 @@ function entrarASitio() {
 
     modelo.classList.add('final');
     intro.style.opacity = '0';
-    pagina.classList.add('visible');
 
     setTimeout(() => {
         intro.style.display = 'none';
+        pagina.style.display = 'block';
     }, 600);
 }
 
