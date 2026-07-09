@@ -30,16 +30,15 @@ html, body {
 
 #cara {
     position: fixed;
-    top: calc(50vh - 15px);
-    left: 50%;
+    top: calc(50vh - 0px);
+    left: calc(50% - 22px);
     transform: translate(-50%, -50%);
     color: rgb(0, 0, 0);
-    font-size: 40px;
+    font-size: 55px;
     z-index: 10001;
     opacity: 0;
     transition: opacity 0.5s ease;
 }
-
 #cara.visible {
     opacity: 1;
 }
