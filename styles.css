@@ -291,8 +291,8 @@ html, body {
 
     #cara {
         font-size: 40px;
-        top: calc(50vh + 22px);
-        left: calc(50% + 16px);
+        top: calc(50vh + 10px);
+        left: calc(50% + 5px);
     }
 }
 
