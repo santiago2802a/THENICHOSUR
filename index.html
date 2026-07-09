@@ -16,6 +16,20 @@
     </div>
 
     <model-viewer
+        id="modelo-tv"
+        src="tv3d/tv.glb"
+        camera-controls
+        camera-orbit="45deg 80deg 120%"
+        min-camera-orbit="-25deg 65deg auto"
+        max-camera-orbit="25deg 95deg auto"
+        interaction-prompt="none"
+        disable-zoom
+        shadow-intensity="1"
+        exposure="1"
+        environment-image="neutral">
+    </model-viewer>
+
+    <model-viewer
         id="modelo-logo"
         src="logo3d/logo.glb"
         auto-rotate

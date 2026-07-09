@@ -2,37 +2,49 @@ const cara = document.getElementById("cara");
 const hint = document.getElementById("hint");
 const intro = document.getElementById("intro");
 const pagina = document.getElementById("pagina");
+const modeloTV = document.getElementById("modelo-tv");
 const modelo = document.getElementById('modelo-logo');
 
 let yaEntro = false;
 
 hint.style.display = "none";
 
-setTimeout(() => { cara.textContent = ";)"; }, 2000);
-setTimeout(() => { cara.textContent = ":)"; }, 4000);
+function empezarSecuencia() {
+    
+    modeloTV.classList.add('visible');
 
-function mostrarLogo() {
-    cara.style.display = "none";
-    modelo.classList.add('visible');
-    hint.textContent = "Tocá el logo WACHIN";
-    hint.style.display = "block";
+    
+    setTimeout(() => { cara.classList.add('visible'); }, 300);
+    setTimeout(() => { cara.textContent = ";)"; }, 2000);
+    setTimeout(() => { cara.textContent = ":)"; }, 4000);
+
+    
+    setTimeout(() => {
+        cara.classList.remove('visible');
+        modeloTV.classList.remove('visible');
+
+        setTimeout(() => {
+            modelo.classList.add('visible');
+            hint.textContent = "Tocá el logo WACHIN";
+            hint.style.display = "block";
+        }, 400);
+    }, 6000);
 }
-
 
 setTimeout(() => {
     if (customElements.get('model-viewer')) {
-        mostrarLogo();
+        empezarSecuencia();
     } else {
-        customElements.whenDefined('model-viewer').then(mostrarLogo);
+        customElements.whenDefined('model-viewer').then(empezarSecuencia);
         setTimeout(() => {
-            if (modelo.style.display !== "none" && !modelo.classList.contains('visible')) {
+            if (!modelo.classList.contains('visible')) {
                 hint.textContent = "Tocá para entrar WACHIN";
                 hint.style.display = "block";
                 intro.addEventListener('click', entrarASitio, { once: true });
             }
         }, 4000);
     }
-}, 6000);
+}, 300);
 
 modelo.addEventListener('error', () => {
     console.warn("El modelo 3D no pudo cargar, se habilita entrada directa.");
