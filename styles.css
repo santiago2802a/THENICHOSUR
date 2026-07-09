@@ -50,6 +50,8 @@ html, body {
     width: 200px;
     height: 200px;
     z-index: 15;
+    background-color: transparent;
+    --poster-color: transparent;
 }
 
 .titulo {
@@ -114,26 +116,31 @@ html, body {
 @font-face {
     font-family: "Boogaloo";
     src: url("fonts/BOOGALOO.TTF") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "FirstPlace";
     src: url("fonts/FirstPlace.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Quiff";
     src: url("fonts/Quiff.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Sabrosy";
     src: url("fonts/Sabrosy.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "WishfulWaves";
     src: url("fonts/WISHFULWAVES.ttf") format("truetype");
+    font-display: swap;
 }
 
 @media (max-width: 768px) {
