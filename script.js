@@ -6,10 +6,14 @@ const modeloTV = document.getElementById("modelo-tv");
 const modelo = document.getElementById('modelo-logo');
 
 let yaEntro = false;
+let secuenciaIniciada = false;
 
 hint.style.display = "none";
 
 function empezarSecuencia() {
+    if (secuenciaIniciada) return;
+    secuenciaIniciada = true;
+
     
     modeloTV.classList.add('visible');
 
@@ -31,20 +35,24 @@ function empezarSecuencia() {
     }, 6000);
 }
 
+
+if (modeloTV.modelIsVisible) {
+    empezarSecuencia();
+} else {
+    modeloTV.addEventListener('load', empezarSecuencia, { once: true });
+}
+
+
 setTimeout(() => {
-    if (customElements.get('model-viewer')) {
-        empezarSecuencia();
-    } else {
-        customElements.whenDefined('model-viewer').then(empezarSecuencia);
-        setTimeout(() => {
-            if (!modelo.classList.contains('visible')) {
-                hint.textContent = "Tocá para entrar WACHIN";
-                hint.style.display = "block";
-                intro.addEventListener('click', entrarASitio, { once: true });
-            }
-        }, 4000);
-    }
-}, 300);
+    empezarSecuencia();
+}, 8000);
+
+
+modeloTV.addEventListener('error', () => {
+    console.warn("La tele 3D no pudo cargar.");
+    empezarSecuencia();
+});
+
 
 modelo.addEventListener('error', () => {
     console.warn("El modelo 3D no pudo cargar, se habilita entrada directa.");
