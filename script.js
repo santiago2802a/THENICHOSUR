@@ -8,15 +8,41 @@ let yaEntro = false;
 
 hint.style.display = "none";
 
-
 setTimeout(() => { cara.textContent = ";)"; }, 2000);
 setTimeout(() => { cara.textContent = ":)"; }, 4000);
 
-setTimeout(() => {
+function mostrarLogo() {
     cara.style.display = "none";
     modelo.classList.add('visible');
+    hint.textContent = "Tocá el logo para entrar";
     hint.style.display = "block";
+}
+
+// Esperamos a que la librería model-viewer esté realmente cargada
+// antes de mostrar el logo, en vez de confiar solo en el tiempo
+setTimeout(() => {
+    if (customElements.get('model-viewer')) {
+        mostrarLogo();
+    } else {
+        customElements.whenDefined('model-viewer').then(mostrarLogo);
+        // Si por algún motivo nunca carga, dejamos pasar igual a los 4s extra
+        setTimeout(() => {
+            if (modelo.style.display !== "none" && !modelo.classList.contains('visible')) {
+                hint.textContent = "Tocá para entrar";
+                hint.style.display = "block";
+                intro.addEventListener('click', entrarASitio, { once: true });
+            }
+        }, 4000);
+    }
 }, 6000);
+
+// Si el modelo tira error al cargar el archivo .glb, no dejamos a nadie trabado
+modelo.addEventListener('error', () => {
+    console.warn("El modelo 3D no pudo cargar, se habilita entrada directa.");
+    hint.textContent = "Tocá para entrar";
+    hint.style.display = "block";
+    intro.addEventListener('click', entrarASitio, { once: true });
+});
 
 function entrarASitio() {
     if (yaEntro) return;
