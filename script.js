@@ -47,10 +47,10 @@ function entrarASitio() {
 
     modelo.classList.add('final');
     intro.style.opacity = '0';
+    pagina.classList.add('visible');
 
     setTimeout(() => {
         intro.style.display = 'none';
-        pagina.style.display = 'block';
     }, 600);
 }
 
