@@ -34,19 +34,18 @@ html, body {
 
 #hint {
     position: fixed;
-    top: calc(50vh + 130px);
+    top: calc(50vh + 200px);
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     text-align: center;
     color: #999;
-    font-size: 16px;
+    font-size: 22px;
     letter-spacing: 2px;
     text-transform: uppercase;
     animation: parpadeo 1.8s infinite;
     z-index: 10000;
 }
-
 @keyframes parpadeo {
     0%, 100% { opacity: 0.4; }
     50% { opacity: 1; }
@@ -70,10 +69,10 @@ html, body {
 
 #modelo-logo {
     position: fixed;
-    top: calc(50vh - 110px);
-    left: calc(50vw - 110px);
-    width: 220px;
-    height: 220px;
+    top: calc(50vh - 170px);
+    left: calc(50vw - 170px);
+    width: 340px;
+    height: 340px;
     z-index: 10000;
     background-color: transparent;
     --poster-color: transparent;
@@ -203,10 +202,10 @@ html, body {
     }
 
     #modelo-logo {
-        width: 160px;
-        height: 160px;
-        top: calc(50vh - 80px);
-        left: calc(50vw - 80px);
+        width: 220px;
+        height: 220px;
+        top: calc(50vh - 110px);
+        left: calc(50vw - 110px);
     }
 
     #modelo-logo.final {
