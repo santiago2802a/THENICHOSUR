@@ -14,15 +14,12 @@ function empezarSecuencia() {
     if (secuenciaIniciada) return;
     secuenciaIniciada = true;
 
-    
     modeloTV.classList.add('visible');
 
-    
     setTimeout(() => { cara.classList.add('visible'); }, 300);
     setTimeout(() => { cara.textContent = ";)"; }, 2000);
     setTimeout(() => { cara.textContent = ":)"; }, 4000);
 
-    
     setTimeout(() => {
         cara.classList.remove('visible');
         modeloTV.classList.remove('visible');
@@ -35,24 +32,20 @@ function empezarSecuencia() {
     }, 6000);
 }
 
-
 if (modeloTV.modelIsVisible) {
     empezarSecuencia();
 } else {
     modeloTV.addEventListener('load', empezarSecuencia, { once: true });
 }
 
-
 setTimeout(() => {
     empezarSecuencia();
 }, 8000);
-
 
 modeloTV.addEventListener('error', () => {
     console.warn("La tele 3D no pudo cargar.");
     empezarSecuencia();
 });
-
 
 modelo.addEventListener('error', () => {
     console.warn("El modelo 3D no pudo cargar, se habilita entrada directa.");
@@ -65,6 +58,9 @@ function entrarASitio() {
     if (yaEntro) return;
     yaEntro = true;
 
+    const glitch = document.getElementById('glitch-overlay');
+    if (glitch) glitch.classList.add('active');
+
     modelo.classList.add('final');
     intro.style.opacity = '0';
     pagina.classList.add('visible');
@@ -72,8 +68,11 @@ function entrarASitio() {
     setTimeout(() => {
         intro.style.display = 'none';
     }, 600);
-}
 
+    setTimeout(() => {
+        if (glitch) glitch.classList.remove('active');
+    }, 600);
+}
 modelo.addEventListener('click', entrarASitio);
 
 

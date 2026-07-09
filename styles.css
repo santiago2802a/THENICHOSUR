@@ -12,6 +12,41 @@ html, body {
     background: black;
 }
 
+#glitch-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+    pointer-events: none;
+    opacity: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.06) 0px,
+        rgba(255,255,255,0.06) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    mix-blend-mode: overlay;
+}
+
+#glitch-overlay.active {
+    animation: glitchOverlay 0.55s steps(1, end) 1;
+}
+
+@keyframes glitchOverlay {
+    0%   { opacity: 0; transform: translateX(0); }
+    5%   { opacity: 0.9; background-color: rgba(255,0,60,0.18); transform: translateX(-10px); }
+    10%  { opacity: 0.7; background-color: rgba(0,255,255,0.18); transform: translateX(8px); }
+    16%  { opacity: 0.9; transform: translateX(-6px) skewX(2deg); }
+    22%  { opacity: 0.3; transform: translateX(4px); }
+    30%  { opacity: 0.85; background-color: rgba(255,0,60,0.12); transform: translateX(-8px) skewX(-2deg); }
+    40%  { opacity: 0.25; transform: translateX(5px); }
+    50%  { opacity: 0.75; background-color: rgba(0,255,255,0.12); transform: translateX(-4px); }
+    60%  { opacity: 0.15; }
+    70%  { opacity: 0.65; transform: translateX(6px) skewX(1deg); }
+    85%  { opacity: 0.2; }
+    100% { opacity: 0; transform: translateX(0); }
+}
+
 #intro {
     position: fixed;
     width: 100%;
@@ -30,8 +65,8 @@ html, body {
 
 #cara {
     position: fixed;
-    top: calc(50vh - 0px);
-    left: calc(50% - 22px);
+    top: calc(50vh + 0px);
+    left: calc(50% + -10px);
     transform: translate(-50%, -50%);
     color: rgb(0, 0, 0);
     font-size: 55px;
@@ -39,6 +74,7 @@ html, body {
     opacity: 0;
     transition: opacity 0.5s ease;
 }
+
 #cara.visible {
     opacity: 1;
 }
@@ -251,13 +287,12 @@ html, body {
     #modelo-tv {
         width: 220px;
         height: 220px;
-        
     }
 
     #cara {
-        font-size: 50px;
-        top: calc(50vh - 22px);
-        left: calc(50% - 16px);
+        font-size: 40px;
+        top: calc(50vh + 22px);
+        left: calc(50% + 16px);
     }
 }
 
